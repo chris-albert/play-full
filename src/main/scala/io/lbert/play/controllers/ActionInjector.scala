@@ -12,12 +12,12 @@ import play.api.libs.json.{JsValue, _}
 import play.api.mvc._
 import scala.concurrent.{ExecutionContext, Future}
 
-class SchemaInjector @Inject()(auditor: Auditor,
+class ActionInjector @Inject()(auditor: Auditor,
                                configuration: Configuration)
                               (implicit ec: ExecutionContext) {
-  import SchemaInjector._
+  import ActionInjector._
 
-  object Schema {
+  object ActionSchema {
 
     def apply[A,B](block: A => Future[B])
                   (implicit schemaIO: Schema[A,B]): Action[AnyContent] =
@@ -64,7 +64,7 @@ class SchemaInjector @Inject()(auditor: Auditor,
     Dependencies(request)
 }
 
-object SchemaInjector {
+object ActionInjector {
   def jsonizeResponse(result: Result, json: Option[JsValue]): JsValue = {
     Json.obj(
       "statusCode" -> result.header.status,

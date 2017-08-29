@@ -6,12 +6,12 @@ import io.lbert.app.controllers.RESTController
 import io.lbert.app.models.ArtistJson.{artistFormat, searchArtistMapping}
 import io.lbert.app.models.{Artist, ArtistSearch}
 import io.lbert.app.services.ArtistService
-import io.lbert.play.controllers.{SchemaInjector, SchemaREST}
+import io.lbert.play.controllers.{ActionInjector, SchemaREST}
 
-class ArtistController @Inject()(tFSchemaInjector: SchemaInjector,
+class ArtistController @Inject()(actionInjector: ActionInjector,
                                  service: ArtistService)
   extends RESTController[Artist,UUID,ArtistSearch](
-    tFSchemaInjector,
+    actionInjector,
     service,
     SchemaREST(artistFormat,searchArtistMapping,"artist")
   )

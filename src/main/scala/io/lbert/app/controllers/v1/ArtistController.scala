@@ -6,18 +6,18 @@ import io.lbert.app.services.ArtistService
 import io.lbert.play.controllers._
 import scala.concurrent.ExecutionContext
 
-class ArtistController @Inject()(tFSchemaIOInjector: SchemaInjector,
+class ArtistController @Inject()(actionInjector: ActionInjector,
                                  service: ArtistService)
                                 (implicit ec: ExecutionContext) {
 
   import ArtistSchemas._
-  import tFSchemaIOInjector._
+  import actionInjector._
 
-  def create           = Schema(service.create _)(createArtistSchema)
-  def get(id: UUID)    = Schema(service.get(id))(getArtistSchema)
-  def search           = Schema(service.search _)(searchArtistSchema)
-  def update(id: UUID) = Schema(service.update(id) _)(updateArtistSchema)
-  def delete(id: UUID) = Schema(service.delete(id))(deleteArtistSchema)
+  def create           = ActionSchema(service.create _)(createArtistSchema)
+  def get(id: UUID)    = ActionSchema(service.get(id))(getArtistSchema)
+  def search           = ActionSchema(service.search _)(searchArtistSchema)
+  def update(id: UUID) = ActionSchema(service.update(id) _)(updateArtistSchema)
+  def delete(id: UUID) = ActionSchema(service.delete(id))(deleteArtistSchema)
 }
 
 object ArtistSchemas {
