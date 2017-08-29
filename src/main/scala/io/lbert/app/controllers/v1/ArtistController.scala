@@ -13,11 +13,11 @@ class ArtistController @Inject()(tFSchemaIOInjector: SchemaInjector,
   import ArtistSchemas._
   import tFSchemaIOInjector._
 
-  def create           = Schema(service.create _)(createArtistSchemaIO)
-  def get(id: UUID)    = Schema(service.get(id))(getArtistSchemaIO)
-  def search           = Schema(service.search _)(searchArtistSchemaIO)
-  def update(id: UUID) = Schema(service.update(id) _)(updateArtistSchemaIO)
-  def delete(id: UUID) = Schema(service.delete(id))(deleteArtistSchemaIO)
+  def create           = Schema(service.create _)(createArtistSchema)
+  def get(id: UUID)    = Schema(service.get(id))(getArtistSchema)
+  def search           = Schema(service.search _)(searchArtistSchema)
+  def update(id: UUID) = Schema(service.update(id) _)(updateArtistSchema)
+  def delete(id: UUID) = Schema(service.delete(id))(deleteArtistSchema)
 }
 
 object ArtistSchemas {
@@ -26,7 +26,7 @@ object ArtistSchemas {
 
   //Create Artist
 
-  val createArtistSchemaIO =
+  val createArtistSchema =
     Schema(
       reads = SchemaReads()
         .JSON(artistReads).withKey("artist"),
@@ -37,7 +37,7 @@ object ArtistSchemas {
 
   //Get Artist
 
-  val getArtistSchemaIO =
+  val getArtistSchema =
     Schema(
       reads = SchemaReads(),
       writes = SchemaWrites()
@@ -46,7 +46,7 @@ object ArtistSchemas {
 
   //Search Artist
 
-  val searchArtistSchemaIO =
+  val searchArtistSchema =
     Schema(
       reads = SchemaReads()
         .Form(searchArtistMapping),
@@ -56,7 +56,7 @@ object ArtistSchemas {
 
   //Update Artist
 
-  val updateArtistSchemaIO =
+  val updateArtistSchema =
     Schema(
       reads = SchemaReads()
         .JSON(artistReads).withKey("artist"),
@@ -66,7 +66,7 @@ object ArtistSchemas {
 
   //Delete Artist
 
-  val deleteArtistSchemaIO =
+  val deleteArtistSchema =
     Schema(
       reads = SchemaReads(),
       writes = SchemaWrites().Status.NoContent
