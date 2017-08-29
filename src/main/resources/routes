@@ -1,0 +1,33 @@
+
+# V0
+
+POST    /v0/artists        io.lbert.app.controllers.v0.ArtistController.create
+PUT     /v0/artists/:id    io.lbert.app.controllers.v0.ArtistController.update(id: java.util.UUID)                                                         
+GET     /v0/artists/:id    io.lbert.app.controllers.v0.ArtistController.get(id: java.util.UUID)
+GET     /v0/artists        io.lbert.app.controllers.v0.ArtistController.search
+DELETE  /v0/artists/:id    io.lbert.app.controllers.v0.ArtistController.delete(id: java.util.UUID)
+
+
+# V1
+
+POST    /v1/artists        io.lbert.app.controllers.v1.ArtistController.create
+PUT     /v1/artists/:id    io.lbert.app.controllers.v1.ArtistController.update(id: java.util.UUID)
+GET     /v1/artists/:id    io.lbert.app.controllers.v1.ArtistController.get(id: java.util.UUID)
+GET     /v1/artists        io.lbert.app.controllers.v1.ArtistController.search
+DELETE  /v1/artists/:id    io.lbert.app.controllers.v1.ArtistController.delete(id: java.util.UUID)
+
+# V2
+
+POST    /v2/artists        io.lbert.app.controllers.v2.ArtistController.create
+PUT     /v2/artists/:id    io.lbert.app.controllers.v2.ArtistController.update(id: java.util.UUID)
+GET     /v2/artists/:id    io.lbert.app.controllers.v2.ArtistController.get(id: java.util.UUID)
+GET     /v2/artists        io.lbert.app.controllers.v2.ArtistController.search
+DELETE  /v2/artists/:id    io.lbert.app.controllers.v2.ArtistController.delete(id: java.util.UUID)
+
+# V3
+
+POST    /v3/artists        io.lbert.app.controllers.v3.ArtistController.create
+PUT     /v3/artists/:id    io.lbert.app.controllers.v3.ArtistController.update(id: java.util.UUID)
+GET     /v3/artists/:id    io.lbert.app.controllers.v3.ArtistController.get(id: java.util.UUID)
+GET     /v3/artists        io.lbert.app.controllers.v3.ArtistController.search
+DELETE  /v3/artists/:id    io.lbert.app.controllers.v3.ArtistController.delete(id: java.util.UUID)
